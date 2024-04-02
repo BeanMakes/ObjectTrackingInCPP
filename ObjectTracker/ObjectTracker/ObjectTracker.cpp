@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+#include "OSCapture.h"
+
 #include <opencv2/opencv.hpp>
 
 int main(int argc, char** argv)
@@ -14,17 +16,21 @@ int main(int argc, char** argv)
     }
 
     // Read the image using the path provided as an argument
-    cv::Mat image = cv::imread(argv[1]);
+    // cv::Mat image = cv::imread(argv[1]);
 
-    if (image.empty()) // Check if the image was loaded successfully
-    {
-        std::cerr << "Error: Could not open or find the image!" << std::endl;
-        return -1;
-    }
+    //if (image.empty()) // Check if the image was loaded successfully
+    //{
+    //    std::cerr << "Error: Could not open or find the image!" << std::endl;
+    //    return -1;
+    //}
 
     // Display the image in a window named "OpenCV Test"
     cv::namedWindow("OpenCV Test", cv::WINDOW_AUTOSIZE);
-    cv::imshow("OpenCV Test", image);
+    OsCapture capture = OsCapture(argv[1]);
+    cv::imshow("OpenCV Test", capture.getImage());
+
+    std::cout << "Width: " << capture.getImageWidth() << std::endl;
+    std::cout << "Height: " << capture.getImageHeight() << std::endl;
 
     // Wait for a key press indefinitely
     cv::waitKey(0);

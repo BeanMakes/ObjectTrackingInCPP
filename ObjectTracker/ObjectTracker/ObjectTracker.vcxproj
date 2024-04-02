@@ -136,6 +136,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ObjectTracker.cpp" />
+    <ClCompile Include="OSCapture.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="OSCapture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
